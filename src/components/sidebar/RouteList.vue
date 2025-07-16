@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useTransportStore } from '@/stores/transport'
 import RouteItem from './RouteItem.vue'
 
@@ -38,6 +38,10 @@ const selectRoute = (index) => {
   transportStore.selectedRouteIndex = index === transportStore.selectedRouteIndex ? -1 : index
   transportStore.drawRoute(index)
 }
+
+watch(routes, () => {
+  transportStore.selectedRouteIndex = -1
+})
 </script>
 
 <style scoped>
