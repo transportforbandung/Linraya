@@ -187,14 +187,17 @@ onMounted(() => {
 })
 
 // Origin and Destination Markers
+import originIconUrl from '@/assets/origin-marker.svg'
+import destinationIconUrl from '@/assets/destination-marker.svg'
+
 const originIcon = L.icon({
-  iconUrl: '@/assets/origin-marker.svg',
+  iconUrl: originIconUrl,
   iconSize: [32, 32],
   iconAnchor: [16, 32], // adjust depending on the image
 })
 
 const destinationIcon = L.icon({
-  iconUrl: '@/assets/destination-marker.svg',
+  iconUrl: destinationIconUrl,
   iconSize: [32, 32],
   iconAnchor: [16, 32],
 })
