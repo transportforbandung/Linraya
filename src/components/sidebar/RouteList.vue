@@ -39,8 +39,14 @@ const selectRoute = (index) => {
   transportStore.drawRoute(index)
 }
 
-watch(routes, () => {
-  transportStore.selectedRouteIndex = -1
+let previousRoutesLength = 0
+
+watch(routes, (newRoutes) => {
+  // Only reset when new results are fetched
+  if (newRoutes.length !== previousRoutesLength) {
+    transportStore.selectedRouteIndex = -1
+    previousRoutesLength = newRoutes.length
+  }
 })
 </script>
 
